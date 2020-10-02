@@ -1,0 +1,1008 @@
+\documentclass[11pt,twoside,headings=normal,open=right,french,DIV=12]{scrreprt}
+
+
+% =========================================
+% CONFIGURATION
+% =========================================
+
+
+% -------------------------------
+% Configuration langue/caractères
+% -------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+
+
+% -------------------------------
+% Packages
+% -------------------------------
+\usepackage{lmodern}                         % fonte de caractères
+\usepackage{graphicx}                        % insertion d'images
+\usepackage{hyperref}                        % gestion des hyperliens					
+\hypersetup{                                 % paramètres hyperref
+	colorlinks=true,           						% activer la couleur pour les liens	             
+    linkcolor=blue} 								% couleur bleue pour liens internes
+\usepackage[french]{cleveref}                % références croisées
+
+
+
+% ------------------
+% Gestion des images
+% ------------------
+\graphicspath{{./images/}}
+\DeclareGraphicsExtensions{.png}
+
+
+% -------------------------------
+% Les options LaTeX
+% -------------------------------
+\pagestyle{headings}                            % style de page
+
+
+% -------------------------------
+% Page de titre
+% -------------------------------
+\title{\rule{\linewidth}{1pt}\\ \Huge GIT et GITHUB}
+\subtitle{\vspace{\fill}\huge Notes\\[-3mm]\rule{\linewidth}{1pt}}
+\publishers{le 28 septembre 2020}
+\author{Jérôme JONDEAU}
+\date{}
+
+
+% -------------------------------
+% Les options KOMA-Script
+% -------------------------------
+% Formatage du nom de chapitre
+\KOMAoptions{chapterprefix=true,DIV=last}
+
+
+% -------------------------------
+% Commande
+% -------------------------------
+    % ---------------------------------------------------------------------------------
+    % BLOC TEXTE
+    % ==========
+    %
+    %    Objectif    - Insérer le text "Git" en petites capitales
+    %    Paramètre   - Nombre   - 0
+    % ---------------------------------------------------------------------------------
+    \newcommand{\git}{\textsc{Git}}
+
+    % ---------------------------------------------------------------------------------
+    % BLOC TEXTE
+    % ==========
+    %
+    %    Objectif    - Insérer le text "GitHub" en petites capitales
+    %    Paramètre   - Nombre   - 0
+    % ---------------------------------------------------------------------------------
+    \newcommand{\github}{\textsc{GitHub}}
+    
+    % ---------------------------------------------------------------------------------
+    % BLOC FORMATAGE TEXTE
+    % ====================
+    %
+    %    Objectif    - Formater un texte en typewriter
+    %    Paramètre   - Nombre   - 1
+    %                  Fonction - Le texte à formater    
+    % ---------------------------------------------------------------------------------
+    \newcommand{\spec}[1]{\texttt{#1}}
+
+    % ---------------------------------------------------------------------------------
+    % BLOC FORMATAGE TEXTE
+    % ====================
+    %	
+    %    Objectif    - Formater un texte en "confère" (cf)
+    %    Paramètre   - Nombre   - 1
+    %                  Fonction - Le texte à formater
+    % ---------------------------------------------------------------------------------
+    \newcommand{\cf}[1]{{\footnotesize{cf #1}}}
+    
+    % ---------------------------------------------------------------------------------
+    % BLOC IMAGE
+    % ==========
+    %
+    %    Objectif    - Insérer une image
+    %    Paramètre   - Nombre   - 2
+    %    Fonction - #1 : la valeur d'échelle
+    %                             #2 : l'intitulé du fichier image à utiliser
+    % ---------------------------------------------------------------------------------      
+    \newcommand{\img}[2]{\includegraphics[scale=#1]{#2}} 
+    
+    % ---------------------------------------------------------------------------------
+    % BLOC IMAGE
+    % ==========
+    %
+    %    Objectif    - Insérer une image dans une boîte, elle même dans le flus de texte
+    %    Paramètre   - Nombre   - 3
+    %                  Fonction - #1 : le décalage vertical de la boîte (par rapport à la ligne de base)
+    %                             #2 : le facteur d'échelle
+    %                             #3 : 'intitulé du fichier image à utiliser
+    % ---------------------------------------------------------------------------------      
+    \newcommand{\rimg}[3]{\raisebox{#1}{\includegraphics[scale=#2]{#3}}}
+
+    % ---------------------------------------------------------------------------------
+    % BLOC INFORMATION
+    % ================
+    %
+    %    Objectif    - Insérer un bloc de commentaire dans le flux du texte.
+    %    Paramètre   - Nombre   - 1
+    %                  Fonction - #1 : le texte de l'information
+    % ---------------------------------------------------------------------------------
+	\newcommand{\info}[1]{
+    \begin{minipage}{\textwidth}
+	    % Icône
+	    % ------
+	    \begin{minipage}[c]{0.1\linewidth}
+		    \centering\img{0.1}{../images/info}
+        \end{minipage}    
+	    % Contenu
+	    % ---------
+		\begin{minipage}[c]{0.8\linewidth}
+		    #1
+        \end{minipage}
+    \end{minipage}
+	}
+
+
+
+% =========================================
+% LE DOCUMENT
+% =========================================
+\begin{document}
+
+
+
+    % -------------------------------
+    % (Re)Définition
+    % -------------------------------
+    % Titre de la table des matières
+    \renewcommand{\contentsname}{Sommaire}
+
+
+
+	% Page de titre
+	% -------------
+	\maketitle
+
+
+    
+    % Sommaire
+    % ------------
+    \tableofcontents
+
+
+
+\addchap{Informations}
+
+
+
+	Les informations typographiées avec une police de \texttt{type machine à écrire} représentent des noms ou des entrées de menu.
+	
+	Dans un lecteur de fichier \emph{pdf} les parties de texte présentées en caractères bleus sont des liens
+	hypertextes pointant vers un partie du document.
+	
+
+
+\chapter{Préparation et démarrage}	
+
+
+
+\section{Informations}
+
+
+
+    Cette section présente l'application \git{} et indique comment préparer son utilisation.
+
+
+\subsection{Présentation}
+
+
+
+    \git{} est un système de gestion de versions, de l'anglais \textbf{V}ersion \textbf{C}ontrol \textbf{S}ystem,
+    communément raccourci en \textsc{VCS}. Selon leur principe de fonctionnement, les \textsc{VCS} se répartissent
+    en trois systèmes principaux :
+    \begin{enumerate}
+        \item local ou \textsc{VCS},
+        \item centralisé ou \textbf{C}\textsc{entralized VCS},
+        \item distribué ou \textbf{D}\textsc{istributed VCS}.
+    \end{enumerate}
+
+    \smallskip
+
+    \git{} est un \textsc{VCS}. Contrairement à d'autres solutions, il n'est pas prévu pour suivre un flux de
+    modifications mais plutôt un flux d'instantanés, où chaque instantané peut être considéré comme \og{}un mini système de
+    fichiers\fg. Les opérations sont donc locales, chaque validation est signée en \textsc{SHA-1} et nommée par sa signature.
+
+    \smallskip
+
+    Il n'existe que deux statuts de données : \textsc{non suivi} et \textsc{suivi}. Au cours de son \textsc{suivi} de version,
+    une donnée aura l'un des trois états suivants :
+    \begin{description}
+        \item \textsc{modifié} le contenu a été modifié, il n'a pas encore été ni indexé ni validé ;
+        \item \textsc{indexé :} le contenu \textsc{modifié} a été pris en compte et est en attente de validation ;
+        \item \textsc{validé: } le contenu \textsc{indexé} a été enregistré dans la base de données. Il servira de référence pour le
+        prochain instantané.
+    \end{description}
+    
+    En correspondance, ces trois états reflètent trois zones de \git{} :
+    \begin{description}
+        \item {le répertoire de travail :} la zone de modification des données ;
+        \item {la zone d'index : } les données qui seront utilisées pour le prochain instantané ;
+        \item {le répertoire .git : } l'ensemble des méta-données et la base de données.
+    \end{description}
+    
+    Le mode opératoire global de suivi est donc lui aussi logiquement réparti en trois étapes :
+    \begin{enumerate}
+        \item modification des données,
+        \item sélection et indexation des données modifiées,
+        \item validation des données indexées.
+    \end{enumerate}        
+
+
+
+\subsection{CLI et GUI}
+
+
+    
+    \git{} est utilisable en ligne de commande et au travers d'interfaces graphiques. Bien qu'utiliser la ligne de
+    commande puisse paraître d'un autre âge, elle offre deux avantages importants :
+    \begin{enumerate}
+        \item les commandes sont identiques sur toutes les plateformes,
+        \item toutes les commandes sont disponibles.
+    \end{enumerate}
+    
+    En comparaison, les interfaces graphiques proposent un aspect et un fonctionnement spécifiques à chaque application.
+    Mais leur véritable inconvénient est de ne proposer qu'un sous-ensemble -- souvent restreint -- des commandes
+    disponibles.
+
+
+
+\section{Configuration initiale}
+
+
+
+La version \git{} est obtenue, sous \bsc{Git bash} et \bsc{Git cmd}, par la commande \verb|git --version|.
+
+
+    Cette section présente la configuration de \git{} pour \textsc{Linux} et indique la liste des fichiers de configuration
+    pour \textsc{Microsoft Windows}\footnote{A partir de \textsc{Microsoft Windows 7}} .
+
+
+
+\subsection{Les fichiers de configuration sous Linux}
+
+
+
+    Le fichier \spec{/etc/gitconfig} définit la configuration globale de \git, destinée à tous les utilisateurs.
+    La commande \verb|git config --system --list| affiche les paramètres de ce fichier.
+    
+    Le fichier \spec{\char`\~/.gitconfig} définit la configuration spécifique d'un utilisateur. La commande
+    \verb|git config --global --list| affiche les paramètres de ce fichier.
+    
+    Enfin, un fichier \spec{.git/config} est présent dans chaque dossier de dépôt pour en définir la configuration
+    et la structure.
+
+
+
+\subsection{Les fichiers de configuration sous Microsoft Windows}
+
+
+
+    Le fichier \spec{\%windir\%:\textbackslash{}ProgramData\textbackslash{}Git\textbackslash{}config} définit la configuration
+    globale de \git, destinée à tous les utilisateurs.
+    
+    Le fichier \spec{\%homepath\%:\textbackslash.gitconfig} définit la configuration spécifique d'un utilisateur.
+    
+    Enfin, le fichier \spec{.git\textbackslash config} est présent dans chaque dossier de dépôt pour en définir la configuration
+    et la structure.    
+
+
+
+\subsection{Configuration initiale de l'utilisateur}
+
+
+    Il est nécessaire de définir l'identité de l'utilisateur en deux commandes :
+    \begin{enumerate}
+        \item \verb|git --config user.name "John Doe"|
+        \item \verb|git --config user.email "john.doe@example.com"|
+    \end{enumerate}
+
+    Par défaut sous \textsc{Linux}, \git{} utilise l'éditeur de fichier \textsc{VIM}. La commande suivante permet de
+    définir l'éditeur \textsc{emacs} : \verb|git --config --global core.editor emacs|.
+
+
+
+\subsection{Affichage des paramètres}
+
+    
+    
+    L'affichage de l'ensemble des paramètres -- global et utilisateur -- est obtenu avec la commande
+    \verb|git config --list|. L'éventuel double affichage de certains paramètres est dû au fait qu'ils sont successivement
+    lus dans les deux fichiers de configuration : dans ce cas la dernière valeur affichée prévaut.
+
+    \smallskip
+    
+    L'affichage d'un paramètre est obtenu par la commande \verb|git config  <parametre>|. Par exemple, le nom de
+    l'utilisateur est affiché avec la commande \verb|git config user.name|.
+
+
+
+\section{Obtenir de l'aide}
+
+
+
+    Sous Linux l'aide pour une commande est accessible de trois façons :
+    \begin{enumerate}
+        \item \verb|git help <commande>|
+        \item \verb|git <commande> --help|
+        \item \verb|man git-<commande>|
+    \end{enumerate}
+
+
+
+\chapter{Démarre ou cloner un dépôt}
+
+
+
+\section{Démarrer un dépôt Git}
+
+
+
+\subsection{Depuis un dossier existant}
+\label{sec-dossier_existant}
+
+
+    Le dossier courant est celui dont on se propose de suivre les données (il est ici supposé que ce dossier esdt vide). La commande initiale \verb|git init|
+    créé le sous-dossier \verb|.git| qui contiendra les méta-données et la base de données du dépôt. Cette
+    commande ne doit être exécutée qu'une seule fois, au moment où \git{} prend en compte le dossier.
+    
+    \smallskip
+    
+    La commande \verb|git status| récapitule l'état de suivi des données. Ici l'état indique "dossier propre"
+    car le dossier est vide.
+    
+    \smallskip
+    
+     Créons le fichier  \spec{README} : la commande \verb|git status| indique que fichier \spec{README} n'est pas suivi. La commande \verb|git add README| indexe ce fichier : la commande \verb|git status| indique maintenant qu'il est suivi.
+     
+    \smallskip    
+    
+    La commande \verb|git commit -m "commit initial"| valide le fichier indexé pour créer un instantané, référencé par une signature numérique SHA-1. La commande \verb|git status| indique de nouveau "dossier propre".
+
+
+
+\subsection{Cloner un dépôt}
+
+
+
+    Le clonage va rapatrier le dépôt distant dans le répertoire courant en y créant un dossier ad-hoc. 
+    
+    \smallskip
+    
+    Admettons que le dépôt à cloner soit \spec{https://github.com/libgit2/libgit2}. La commande
+    \verb|git clone https://github.com/libgit2/libgit2| procède aux opérartions suivantes :
+    \begin{enumerate}
+        \item création locale du dossier \spec{libgit2},
+        \item récupération de la base de données du dépôt,
+        \item initialisation du sous-dossier .git,
+        \item extraction de la dernière version.    
+    \end{enumerate}
+
+    Pour personnaliser le dossier local en \spec{monlibgit2}, la commande devra être modifiée pour spécifier le dossier,
+    soit \verb|git clone https://github.com/libgit2/libgit2 monlibgit2|.
+    
+    \smallskip
+    
+    Dès lors, le suivi de version est identique à celui présenté à la section \ref{sec-dossier_existant}.
+
+
+
+\chapter{Les commandes de base}
+
+
+
+\section{Le statut court}
+
+
+
+    La commande \verb|git status -s| affiche un état synthétique du suivi de données, sur deux colonnes : la colonne
+    de gauche représente l'état de l'index, celle de droite celui du répertoire de travail. Ci-dessous les différents états de suivi :
+    \begin{description}
+	    \item {"\_M"} : fichier indexé modifié mais pas encore indexé
+        \item {"MM"} : fichier modifié et indexé puis de nouveau modifié
+		\item {"M\_"} : fichier modifié et indexé
+		\item {"AM"} : nouveau fichier indexé puis modifié        
+		\item {"A\_"} : nouveau fichier indexé
+	    \item {"??"} : fichier non suivi
+	\end{description}    
+
+
+
+\section{Indexer des fichiers}
+
+
+
+    Les commandes suivantes présentes des exemples courants d'indexation :
+    \begin{description}
+        \item {\verb|git add readme|} : indexer le fichier \spec{readme}
+        \item {\verb|git add *.c|} : indexer tous les fichier d'extension \spec{c}
+        \item {\verb|git add nom_dossier|} : dans le cas d'un dossier, tous les éléments du dossier sont indexés, en mode récursif
+    \end{description}
+
+
+
+\section{Ignorer des fichiers}
+
+
+
+\section{Fichiers d'exclusion}
+
+
+
+Un fichier d'exclusion, à nommer \spec{.gitmore}, liste les modèles de nom de fichiers ou dossiers à exclure
+du suivi. Un fichier d'exclusion s'applique récursivement sur toute la structure du dossier de travail ou jusqu'à rencontrer un nouveau fichier d'exclusion.
+
+
+
+\subsection{Définir les exclusions}
+
+
+
+    Chaque ligne du fichier \spec{.gitmore} définit une exclusion, comme indiqué ci-dessous.
+    \begin{itemize}
+    
+        \item une ligne vide est ignorée
+        \item une ligne de commentaire, qui doit débuter par \#, est ignorée        
+        \item ensemble de caractères :
+        \begin{itemize}
+        		\item pour les noms de fichiers ou de dossiers
+        		\item \spec{[bB]}uild exclut \spec{build} et spec{Build}
+        \end{itemize}
+        \item patron de fichier :
+		\begin{itemize}
+			\item \spec{dir1/dir2/file.ext} :
+			\begin{itemize}
+				\item exclut le fichier {file.ext} en récursif
+				\item à partir du dossier {dossier de travail/dir1/dir2/}
+			\end{itemize}
+			\item \spec{otherfile.ext} :
+			\begin{itemize}
+				\item exclut le fichier {otherfile} en récursif
+				\item à partir du dossier {dossier de travail}
+			\end{itemize}
+			\item \spec{doc/*.apk} : 
+			\begin{itemize}
+				\item exclut tous fichiers d'extension \spec{apk}
+				\item à partir du dossier \spec{doc} en mode résursif
+			\end{itemize}		
+			\item \spec{/*.apk} : 
+			\begin{itemize}
+				\item exclut tous fichiers d'extension \spec{apk}
+				\item uniquement dans le dossier courant (sans récursion)
+			\end{itemize}					
+			\item exception à l'exclusion : 
+			\begin{itemize}
+				\item\spec{!*}
+				\item \spec{!a.apk}
+				\item exclut tous les fichiers d'extension \spec{apk} sauf \spec{a.apk}
+				\item uniquement dans le dossier courant (sans récursion)
+			\end{itemize}				
+		\end{itemize}			        
+        \item patron de dossier :
+		\begin{itemize}        
+			\item \spec{dir1/} : exclut le dossier {dir1} lui-même et en récursif
+			\item il faut spécifier un dossier par lig
+		\end{itemize}		
+        \item : \spec{**/dir1/} :
+		\begin{itemize}        
+			\item exclut le dossier \spec{dir1} en mode récursif
+			\item sans exclure les fichiers \spec{dir1}
+		\end{itemize}		
+        \item : \spec{dir1/**/dir2} :
+		\begin{itemize}        
+			\item exclut le dossier \spec{dir2}
+			\item quelqu soit le nombre de dossiers entre \spec{dir1} et \spec{dir2}
+		\end{itemize}		
+        \item patron commun fichier et dossier :
+		\begin{itemize}        
+			\item \spec{elem} : exclut tous les fichiers et tous dossiers en mode résursif			
+		\end{itemize}							
+    \end{itemize}
+
+
+
+\subsection{Exemples}
+
+
+
+    \begin{description}       
+	    \item \# pas de fichier .a
+		\item \spec{.a}
+        \item \# conserver lib.a malgré la règle précédente
+		\item \spec{!lib.a}
+        \item \# ignorer le fichier TODO à la racine du projet
+		\item \spec{/TODO}
+	    \item \# ignorer tous les fichiers dans le dossier build
+		\item \spec{build/}
+		\item \#ignorer doc/note.txt mais pas doc/server/arch/txt
+		\item \spec{doc/*.txt}
+    \end{description}
+
+	
+	
+	
+\section{Inspecter les modifications non indexées et indexées}
+
+
+
+\subsection{Les modifications non indexées}
+
+
+
+    La commande \verb|git diff| compare le contenu du dossier de travail avec la zone d'index pour établir la liste toutes les modifications qui n'ont pas encore été indexées.
+    
+    \smallskip
+    
+    Si toutes les modifications ont été indexées, la liste est vide. Sinon elle affiche les fichiers modifiés et les modifications apportées à chacun d'entre eux. Il est possible de visualiser cette liste sous forme graphique avec la commande \verb|git difftool|.
+    
+La commande \verb|git difftool --tool-help|
+    liste à son tour les applications disponibles pour cet affichage.
+
+
+
+\subsection{Les modifications indexées}
+
+
+
+    La commande \verb|git diff --staged| compare la zone d'index avec le dernier instantané pour établir la liste de toutes
+    les modifications indexées. Ces modifications seront celles prises en compte lors de la prochaine validation.
+
+
+
+\section{Valider les modifications}
+
+
+
+    Deux méthodes permettent de valider les données indexées.
+
+
+
+\subsection{Via la commande d'édition}    
+\label{subsec-valider_commit}
+
+
+    La commande \verb|git commit [-v]| lance l'éditeur défini dans le configuration \git{} pour permettre la saisie de l'intitulé de commit.
+    
+    Sans le paramètre \verb|-v| la liste des nom de fichiers à valider est afficher. Avec le paramètre un \verb|git diff| de chaque fichier indexé est affiché.
+    
+    \smallskip
+    
+    Une fois l'intitulé du commit saisi sur la première ligne, le fichier édité doit être fermé avec sauvegarde. Le
+    \verb|commit| est alors automatiquement réalisé avec l'intitulé saisi.
+
+
+
+\subsection{Via la commande directe}    
+
+
+
+    La commande \verb|commit -m "intitulé"| réalise directement le commit en l'intitulant avec le texte indiqué en dernier paramètre.
+
+    \smallskip
+    
+    La commande \verb|commit -am "intitulé"| indexe automatiquement tous les fichiers déjà en suivi de version et produit directement le commit avec le texte indiqué en dernier paramètre.
+
+
+
+\section{Supprimer ou renommer un fichier}
+
+
+
+\subsection{Supprimer un fichier}
+
+
+
+    Deux cas de figure sont envisageables : demander à \git{} de supprimer le fichier ou le supprimer directement de dossier de travail.
+
+
+
+\subsubsection{Suppression par Git}    
+
+
+
+    \git{} supprime le fichier du dossier de travail, les éventuelles informations de suivi puis indexe automatiquement la suppression.
+    
+    Si ce fichier n'est pas indexé, la commande \verb|git rm nomFichier| procèdera à la
+    suppression. S'il est indexé, il faudra forcer la suppression avec la commande
+    \verb|git rm -f nomFichier|.
+
+
+
+\subsubsection{Suppression directe du fichier}    
+
+
+
+    La suppression directe d'un fichier dans le dossier de travail sera indiquée par la commande \verb|git status|. Il faudra alors appeler \verb|git rm [-f] nomFichier| pour indexer la suppression.
+
+
+
+\subsubsection{Un cas pratique}    
+
+
+
+Comment supprimer le suivi d'un fichier, par exemple suite à une modification \verb|.gitignore| ?
+En utilisant la commande \verb|git rm --cached nomFichier|.
+
+
+
+\subsection{Renommer un fichier}
+
+
+
+    La commande \verb|git mv nom_origine nom_cible| renomme le fichier \spec{nom\_origine} en \spec{nom\_cible}.
+    Cette commande est directement indexée. Les trois commandes suivantes seraient nécessaires pour produire le même résultat :
+    \begin{enumerate}
+        \item \verb|mv nom_origine nom_cible|
+  		\item \verb|git rm nom_origine|
+		\item \verb|git add  nom_cible|
+    \end{enumerate}
+
+
+
+\section{Visualiser l'historique des validations}
+
+
+  
+La commande \verb|git log| affiche tous les \spec{commit} réalisés, le dernier apparaîsant en premier. Cet affichage est réalisé par un outil de pagination.
+    
+    \smallskip
+    
+    La commande \verb|git log| peut être assortie de très nombreux paramètres. Les plus utilisés sont listés ci-dessous :
+    \begin{description}
+            \item {-p} : afficher les différences introduites pour chaque validation,
+        \item {-x} : limiter l'affichage aux \spec{x} commits les plus récents,
+        \item {--stat} : afficher les statistiques résumées de chaque commit,
+        \item {-Snom} : limiter l'affichage aux commits qui ajoute ou retire du texte comportant \spec{nom},
+        \item {--pretty} : modifier le format des informations de sortie.
+    \end{description}
+
+
+
+\section{Modification d'un commit}
+
+
+
+Le \verb|commit| erroné ne peut pas être modifié : il faut donc le remplacer.
+
+
+\subsection{Modifier l'intitulé d'un commit}
+
+
+
+La commande \verb|git commit --amend| permet de saisir un nouvel intitulé, comme présenté à la section \ref{subsec-valider_commit}.
+
+
+
+\subsection{Ajouter un fichier au commit}
+
+
+    
+    Pour ajouter un \spec{fichier} oublié, il suffit de l'indexer avec la commande \verb|git add nomFichier| puis de lancer la commande \verb|git commit --amend| : la saisie de l'intitulé est alors  réalisé comme présenté à la section \ref{subsec-valider_commit}.
+
+
+
+\subsection{Désindexer un fichier}
+
+
+
+    Il peut être nécessaire de désindexer un fichier dans l'objectif de réaliser un \spec{commit} dédié à la modification qu'il apporte. La commande \verb|git reset HEAD nomFichier| désindexe le fichier \spec{nomFichier}. Il faut alors réindexer le fichier et créer le \spec{commit} dédié.
+
+
+
+\subsection{Réinitialisation}
+
+
+
+\subsubsection{Réparer une erreur non validée}
+
+
+
+%	\info{\textbf{Attention !} L'ancien contenu est \textbf{définitivement} perdu.} 
+
+La commande \verb|git reset --hard HEAD| restaure le dossier de travail et l'index à l'état du dernier \verb|git commit|. Les commandes \verb|git diff| et \verb|git diff --cached| ne rapporteront donc plus aucune différence.
+
+    \smallskip
+
+Pour restaurer un seul fichier, deux commandes sont nécessaires :
+\begin{enumerate}
+\item \verb|git checkout -- nomFichier| : restauration du fichier à la version de l'index (la commande \verb|git diff| ne rapportera plus de différence),
+\item \verb|git checkout HEAD nomFichier| : restauration de l'index à la valeur du dernier \verb|commit| (la commande \verb|git diff --cached| ne rapportera plus de différence).
+\end{enumerate}
+
+
+
+\subsubsection{Réparer une erreur validée}
+
+
+
+Il faut créer un nouveau \verb|commit| qui annule les changements du \verb|commit| erroné. Deux  exemples :
+\begin{itemize}
+\item la commande \verb|git revert HEAD| annule les changements du dernier \verb|commit (HEAD)| et lance l'édition d'un intitulé,
+\item la commande \verb|git revert HEAD^| annule les changements de l'avant dernier \verb|commit (HEAD^)| et lance l'édition d'un intitulé.
+\end{itemize}
+
+
+
+\section{Connexion avec des dépôts distants}    
+
+
+
+\subsection{Afficher les connexions distantes}    
+
+
+
+    La commande \verb|git remote| affiche la liste des dépôts distants enregistrés dans le dépôt local. Dans cette liste, le terme \spec{origin} est le nom par défaut que \git{} attribue à un dépôt cloné.
+    
+    \smallskip
+    
+    La commande \verb|git remote -v| ajoute l'url des dépôts à la liste affichée.
+
+
+
+\subsection{Ajouter une connexion distante sur un nom court}
+
+
+
+    En enregistrant un dépôt distant il est possible de lui associer un non court qui pourra être utiliser dans toutes
+    les opérations. Dans la liste \verb|git remote|, le dépôt ne sera plus repéré par \verb|origin| mais par son nom court.
+    
+    \smallskip
+    
+    La commande \verb|git remote add pb https://github.com/pailboone/ticgit| associe le nom court \verb|pb| au dépôt distant \verb|\https://github.com/pailboone/ticgit|.
+
+
+
+\subsection{Inspecter les informations d'une connexion}
+
+
+
+    La commande \verb|git remote show nonDistant| affiche un récapitulatif complet des informations de la connexion.
+
+%	\info{\texttt{nonDistant} est le nom local associé au dépôt distant : \texttt{origin} ou nom court.}  
+
+
+
+\subsection{Renommer un dépôt distant}
+
+
+
+    La commande \verb|git remote rename nonDistant nouveauNNomDistant| modifie le nom court d'une connexion. Les noms des branches sont automatiquement mis en jour.
+
+%	\info{\texttt{nonDistant} est le nom local associé au dépôt distant : \texttt{origin} ou nom court.}     
+
+
+
+\subsection{Retirer un dépôt local}
+
+
+    La commande \verb|git remote rm nonDistant| retire la connexion distante \verb|nonDistant|.
+
+
+%	\info{\texttt{nonDistant} est le nom local associé au dépôt distant : \texttt{o%rigin} ou nom court.}     
+  
+
+
+
+\subsection{Récupérer et tirer un dépôt distant}        
+
+
+
+    La commande \verb|git fetch nonDistant nomBranche| récupère les données mises à jour sur la branche \verb|nomBranche| du dépôt distant et absentes du dépôt local. Ces données sont copiées dans une branche locale qui n'est pas une branche de travail. La commande \verb|git merge| devra être utilisée pour fusionner ces informations sur une branche locale.
+    
+    La commande \verb|git pull origin master| opère la même opération mais procède également à la fusion des données récupérées dans la branche \verb|master|. Elle équivant aux deux commandes successives \verb|git fetch| et \verb|git merge|.
+
+%	\info{\texttt{nonDistant} est le nom local associé au dépôt distant : \texttt{origin} ou nom court.} 	
+
+
+
+\subsection{Pousser vers un dépôt distant}    
+
+
+
+    La commande \verb|git push origin master| envoie les modifications de la branche locale \verb|master| du dépôt distant.
+
+%	\info{\texttt{nonDistant} est le nom local associé au dépôt distant : \texttt{origin}, nom court.}      
+    
+    \smallskip
+    
+    Pour que cette commande fonctionne il faut évidemment disposer de droits d'écriture sur le distant. De plus, toutes les modifications du distant doivent avoir été récupérées en local : dans le cas contraire il sera d'abord nécessaire de fusionner ces données en local -- commande \verb|git pull| -- puis de pousser vers le distant.
+
+
+
+\section{\'Etiquetage}    
+
+
+
+\subsection{Introduction}
+
+
+
+    Etiqueter un commit permet de localiser un état précis dans l'historique. La commande \verb|git tag| affiche la liste
+    alphabétiques des étiquettes définies. Il est possible de rechercher un motif particulier, par exemple
+    \verb|git tag -l 'v1.8.5*'|.
+
+
+
+\subsection{Créer des étiquettes}    
+
+
+
+    Il existe deux type d'étiquettes : annotée et légère.
+
+
+
+\subsubsection{\'Etiquette annotée}
+
+
+
+    Une étiquette annotée dispose d'une somme de contrôle, contient le nom et l'adresse de courriel du créateur, la date
+    et un message d'étiquetage. Elle peut en outre être signée et vérifiée avec \textsc{Gnupg} : elle est stockée dans
+    la base de données \verb|git|.
+    
+    \smallskip
+    
+    La commande \verb|git tag -a v1.4| lance l'éditeur défini dans la configuration \git{} pour saisir le message d'étiquetage. La fermeture
+    sauvegardée du fichier édité créé l'étiquette. La commande \verb|git tag -a v1.4 -m 'version 1.4'| procède directement
+    à la création de l'étiquette. Dans tous les cas le dernier \spec{commit} est étiquetté par \verb|v1.4|.
+    
+    \smallskip
+    
+    La commande \verb|git show v1.4| affiche conjointement les informations de l'étiquette et du \spec{commit} associé.
+
+
+
+\subsubsection{\'Etiquettes légère}
+
+
+
+    Une étiquette légère stocke uniquement la somme de contrôle d'un \spec{commit} dans un fichier annexe. La commande
+    \verb|git tag v1.4g| créé l'étiquette légère \verb|v1.4g| sur le dernier \spec{commit}.
+    
+    \smallskip
+    
+    La commande \verb|git show v1.4g| affiche uniquement les informations du \spec{commit}.
+
+
+
+\subsubsection{\'Etiqueter un commit précis}    
+
+
+
+    Il est possible d'étiqueter un \spec{commit} précis, en indiquant tout ou partie de sa somme de contrôle. La commande \verb|git tag -a v1.2 9fceb02| créé une étiquette annotée pour le commit dont la
+    somme de contrôle débute par \verb|9fceb02|.
+
+
+
+\subsubsection{Partager les étiquettes}
+
+
+
+    Par défaut, la commande \verb|git push| ne pousse pas les étiquettes. Pour pousser l'étiquette \verb|v1.2| il faut
+    utiliser la commande \verb|git push origin v1.2|. Pour pousser toutes les nouvelles étiquettes en une seule opération il faut utiliser
+    la commande \verb|git push origin --tags|.
+
+
+
+\section{Les alias}
+
+
+   
+    L'alias \verb|git config --global alias.last 'log -1 HEAD'| affiche le dernier \spec{commit}. L'appel sera
+    \verb|git last|.
+
+    \smallskip
+    
+    L'alias \verb|git config --global alias.ci 'commit'| exécute le \spec{commit}. L'appel sera \verb|git ci|.
+
+    \smallskip
+    
+    L'alias \verb|git config --global alias.st 'status'| affiche le statut.. L'appel sera \verb|git st|.
+
+
+
+\chapter{Cas pratiques : suivi}
+
+
+
+\section{Initialisation et suivi Git}
+
+
+
+Cette section résume un cas d'école : comment initialiser le suivi \git{} d'un dossier puis comment prendre en compte le suivi de la création et de la modification d'un fichier dans ce dossier.
+
+%	\info{Les étapes et commandes listées sont celles utilisées sous \bsc{Git bash} ou \bsc{Git cmd}.}   
+
+
+
+\subsection{Initialisation}
+
+
+
+\begin{enumerate}
+\item se déplacer dans le dossier
+\item \verb|git init| : intialiser le suivi
+\item \verb|git status|  : pour démonstration, afficher l'état actuel du suivi 
+\end{enumerate}
+
+
+
+\subsection{Création et suivi d'un nouveau fichier}
+
+
+
+\begin{enumerate}
+\item créer un fichier \verb|nomFichier| dans le dossier
+\item \verb|git status|  : le nouveau fichier est détecté comme non "suivi"
+\item \verb|git add nomFichier| : indexer le fichier (cqfd : prise en compte de son suivi)
+\item \verb|git commit -m "Premier fichier"| : valider la version du nouveau fichier
+\item git log : afficher les informations du commit 
+\item \verb|git status|  : il n'y a plus de fichier à suivre
+\end{enumerate}
+
+
+
+\subsection{Modifier er suivre le fichier}
+
+
+
+\begin{enumerate}
+\item modifier le fichier \verb|nonFichier|
+\item \verb|git status|  : la modification du fichier est détectée comme non "suivie"
+\item \verb|git add nomFichier| : indexer le fichier (cqfd : prise en compte de sa modification)
+\item \verb|git commit -m "Modification premier fichier"| : valider la version modifiée du fichier
+\item \verb|git log| : afficher les informations des commits 
+\item \verb|git status|  : il n'y a plus de modification à suivre
+\end{enumerate}    
+end{itemize}
+
+
+
+\subsection{Commandes push et pull}
+
+
+
+\subsubsection{Commande pull}
+
+
+
+\begin{enumerate}
+\item créer un dépôt GitHub
+\item \verb|git pull urlDepotGitHub| (url indiquée dans les paramètres GitHub du dépôt)
+	\begin{enumerate}
+	\item \git{} contacte le dépôt distant, sur son url
+	\item il créé un sous-dossier du nom du dépôt et s'y déplace
+	\item il télécharge la base de données
+	\item il extrait la base de données
+	\end{enumerate}
+\end{enumerate}    
+
+
+
+\subsubsection{Commande push}
+
+
+
+\begin{enumerate}
+\item créer un dépôt GitHub
+\item se déplacer dans le dossier du dépôt local
+\item \verb|git remote add origin urlDepotGitHub| (url indiquée dans les paramètres GitHub du dépôt)
+\item \verb|git push origin master|
+\end{enumerate}  
+
+
+
+ 
+ 
+\end{document}
+
