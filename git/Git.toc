@@ -1,0 +1,67 @@
+\babel@toc {french}{}
+\contentsline {chapter}{\nonumberline Informations}{5}{chapter*.2}% 
+\contentsline {chapter}{\numberline {1}Pr\IeC {\'e}paration et d\IeC {\'e}marrage}{7}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}Informations}{7}{section.1.1}% 
+\contentsline {subsection}{\numberline {1.1.1}Pr\IeC {\'e}sentation}{7}{subsection.1.1.1}% 
+\contentsline {subsection}{\numberline {1.1.2}CLI et GUI}{8}{subsection.1.1.2}% 
+\contentsline {section}{\numberline {1.2}Configuration initiale}{8}{section.1.2}% 
+\contentsline {subsection}{\numberline {1.2.1}Les fichiers de configuration sous Linux}{8}{subsection.1.2.1}% 
+\contentsline {subsection}{\numberline {1.2.2}Les fichiers de configuration sous Microsoft Windows}{8}{subsection.1.2.2}% 
+\contentsline {subsection}{\numberline {1.2.3}Configuration initiale de l'utilisateur}{8}{subsection.1.2.3}% 
+\contentsline {subsection}{\numberline {1.2.4}Affichage des param\IeC {\`e}tres}{9}{subsection.1.2.4}% 
+\contentsline {section}{\numberline {1.3}Obtenir de l'aide}{9}{section.1.3}% 
+\contentsline {chapter}{\numberline {2}D\IeC {\'e}marre ou cloner un d\IeC {\'e}p\IeC {\^o}t}{11}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}D\IeC {\'e}marrer un d\IeC {\'e}p\IeC {\^o}t Git}{11}{section.2.1}% 
+\contentsline {subsection}{\numberline {2.1.1}Depuis un dossier existant}{11}{subsection.2.1.1}% 
+\contentsline {subsection}{\numberline {2.1.2}Cloner un d\IeC {\'e}p\IeC {\^o}t}{11}{subsection.2.1.2}% 
+\contentsline {chapter}{\numberline {3}Les commandes de base}{13}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Le statut court}{13}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}Indexer des fichiers}{13}{section.3.2}% 
+\contentsline {section}{\numberline {3.3}Ignorer des fichiers}{13}{section.3.3}% 
+\contentsline {section}{\numberline {3.4}Fichiers d'exclusion}{13}{section.3.4}% 
+\contentsline {subsection}{\numberline {3.4.1}D\IeC {\'e}finir les exclusions}{13}{subsection.3.4.1}% 
+\contentsline {subsection}{\numberline {3.4.2}Exemples}{14}{subsection.3.4.2}% 
+\contentsline {section}{\numberline {3.5}Inspecter les modifications non index\IeC {\'e}es et index\IeC {\'e}es}{15}{section.3.5}% 
+\contentsline {subsection}{\numberline {3.5.1}Les modifications non index\IeC {\'e}es}{15}{subsection.3.5.1}% 
+\contentsline {subsection}{\numberline {3.5.2}Les modifications index\IeC {\'e}es}{15}{subsection.3.5.2}% 
+\contentsline {section}{\numberline {3.6}Valider les modifications}{15}{section.3.6}% 
+\contentsline {subsection}{\numberline {3.6.1}Via la commande d'\IeC {\'e}dition}{15}{subsection.3.6.1}% 
+\contentsline {subsection}{\numberline {3.6.2}Via la commande directe}{15}{subsection.3.6.2}% 
+\contentsline {section}{\numberline {3.7}Supprimer ou renommer un fichier}{15}{section.3.7}% 
+\contentsline {subsection}{\numberline {3.7.1}Supprimer un fichier}{15}{subsection.3.7.1}% 
+\contentsline {subsubsection}{\nonumberline Suppression par Git}{16}{section*.3}% 
+\contentsline {subsubsection}{\nonumberline Suppression directe du fichier}{16}{section*.4}% 
+\contentsline {subsubsection}{\nonumberline Un cas pratique}{16}{section*.5}% 
+\contentsline {subsection}{\numberline {3.7.2}Renommer un fichier}{16}{subsection.3.7.2}% 
+\contentsline {section}{\numberline {3.8}Visualiser l'historique des validations}{16}{section.3.8}% 
+\contentsline {section}{\numberline {3.9}Modification d'un commit}{16}{section.3.9}% 
+\contentsline {subsection}{\numberline {3.9.1}Modifier l'intitul\IeC {\'e} d'un commit}{16}{subsection.3.9.1}% 
+\contentsline {subsection}{\numberline {3.9.2}Ajouter un fichier au commit}{17}{subsection.3.9.2}% 
+\contentsline {subsection}{\numberline {3.9.3}D\IeC {\'e}sindexer un fichier}{17}{subsection.3.9.3}% 
+\contentsline {subsection}{\numberline {3.9.4}R\IeC {\'e}initialisation}{17}{subsection.3.9.4}% 
+\contentsline {subsubsection}{\nonumberline R\IeC {\'e}parer une erreur non valid\IeC {\'e}e}{17}{section*.6}% 
+\contentsline {subsubsection}{\nonumberline R\IeC {\'e}parer une erreur valid\IeC {\'e}e}{17}{section*.7}% 
+\contentsline {section}{\numberline {3.10}Connexion avec des d\IeC {\'e}p\IeC {\^o}ts distants}{17}{section.3.10}% 
+\contentsline {subsection}{\numberline {3.10.1}Afficher les connexions distantes}{17}{subsection.3.10.1}% 
+\contentsline {subsection}{\numberline {3.10.2}Ajouter une connexion distante sur un nom court}{17}{subsection.3.10.2}% 
+\contentsline {subsection}{\numberline {3.10.3}Inspecter les informations d'une connexion}{18}{subsection.3.10.3}% 
+\contentsline {subsection}{\numberline {3.10.4}Renommer un d\IeC {\'e}p\IeC {\^o}t distant}{18}{subsection.3.10.4}% 
+\contentsline {subsection}{\numberline {3.10.5}Retirer un d\IeC {\'e}p\IeC {\^o}t local}{18}{subsection.3.10.5}% 
+\contentsline {subsection}{\numberline {3.10.6}R\IeC {\'e}cup\IeC {\'e}rer et tirer un d\IeC {\'e}p\IeC {\^o}t distant}{18}{subsection.3.10.6}% 
+\contentsline {subsection}{\numberline {3.10.7}Pousser vers un d\IeC {\'e}p\IeC {\^o}t distant}{18}{subsection.3.10.7}% 
+\contentsline {section}{\numberline {3.11}\'Etiquetage}{18}{section.3.11}% 
+\contentsline {subsection}{\numberline {3.11.1}Introduction}{18}{subsection.3.11.1}% 
+\contentsline {subsection}{\numberline {3.11.2}Cr\IeC {\'e}er des \IeC {\'e}tiquettes}{18}{subsection.3.11.2}% 
+\contentsline {subsubsection}{\nonumberline \'Etiquette annot\IeC {\'e}e}{19}{section*.8}% 
+\contentsline {subsubsection}{\nonumberline \'Etiquettes l\IeC {\'e}g\IeC {\`e}re}{19}{section*.9}% 
+\contentsline {subsubsection}{\nonumberline \'Etiqueter un commit pr\IeC {\'e}cis}{19}{section*.10}% 
+\contentsline {subsubsection}{\nonumberline Partager les \IeC {\'e}tiquettes}{19}{section*.11}% 
+\contentsline {section}{\numberline {3.12}Les alias}{19}{section.3.12}% 
+\contentsline {chapter}{\numberline {4}Cas pratiques : suivi}{21}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Initialisation et suivi Git}{21}{section.4.1}% 
+\contentsline {subsection}{\numberline {4.1.1}Initialisation}{21}{subsection.4.1.1}% 
+\contentsline {subsection}{\numberline {4.1.2}Cr\IeC {\'e}ation et suivi d'un nouveau fichier}{21}{subsection.4.1.2}% 
+\contentsline {subsection}{\numberline {4.1.3}Modifier er suivre le fichier}{21}{subsection.4.1.3}% 
+\contentsline {subsection}{\numberline {4.1.4}Commandes push et pull}{21}{subsection.4.1.4}% 
+\contentsline {subsubsection}{\nonumberline Commande pull}{21}{section*.12}% 
+\contentsline {subsubsection}{\nonumberline Commande push}{22}{section*.13}% 

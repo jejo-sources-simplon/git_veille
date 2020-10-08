@@ -302,14 +302,15 @@ La version \git{} est obtenue, sous \bsc{Git bash} et \bsc{Git cmd}, par la comm
 \subsection{Configuration initiale de l'utilisateur}
 
 
-    Il est nécessaire de définir l'identité de l'utilisateur en deux commandes :
+
+    Pour définirl'identité de l'utilisateur, deux commandes :
     \begin{enumerate}
-        \item \verb|git --config user.name "John Doe"|
-        \item \verb|git --config user.email "john.doe@example.com"|
+        \item \verb|git config user.name "John Doe"|
+        \item \verb|git config user.email "john.doe@example.com"|
     \end{enumerate}
 
     Par défaut sous \textsc{Linux}, \git{} utilise l'éditeur de fichier \textsc{VIM}. La commande suivante permet de
-    définir l'éditeur \textsc{emacs} : \verb|git --config --global core.editor emacs|.
+    définir l'éditeur \textsc{emacs} : \verb|git config --global core.editor emacs|.
 
 
 
@@ -323,7 +324,7 @@ La version \git{} est obtenue, sous \bsc{Git bash} et \bsc{Git cmd}, par la comm
 
     \smallskip
     
-    L'affichage d'un paramètre est obtenu par la commande \verb|git config  <parametre>|. Par exemple, le nom de
+    L'affichage d'un paramètre est obtenu par la commande \verb|git config <parametre>|. Par exemple, le nom de
     l'utilisateur est affiché avec la commande \verb|git config user.name|.
 
 
